@@ -1,7 +1,9 @@
 import numpy as np
 import pandas as pd
 import unittest
-from ../montecarlo import Die, Game, Analyzer
+import sys
+sys.path.append('/Users/griffinmccauley/Documents/MSDS/DS5100/DS5100-Final-Project')
+from montecarlo.montecarlo import Die, Game, Analyzer
 
 class DieGameTestSuite(unittest.TestCase):
     '''This DieGameTestSuite class contains the test suite of methods used to unit test the Die, Game, and Analyzer classes.'''
@@ -67,7 +69,7 @@ class DieGameTestSuite(unittest.TestCase):
         game = Game([die1, die2, die3])
         game.play(10)
         result = game.show_result('narrow')
-        self.assertTrue(result.shape == (30, 1) and result.index.names == ['die_number', 'roll_number'] and result.columns[0] == 'face_rolled')
+        self.assertTrue(result.shape == (30, 1) and result.index.names == ['roll_number', 'die_number'] and result.columns[0] == 'face_rolled')
         
     def test_050_show_result_failure(self):
         die1 = Die(['Ace', 'King', 'Queen', 'Jack'])

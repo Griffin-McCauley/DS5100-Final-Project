@@ -1,0 +1,20 @@
+test_001_init (__main__.DieGameTestSuite) ... ok
+test_002_change_weight_success (__main__.DieGameTestSuite) ... ok
+test_003_change_weight_failure (__main__.DieGameTestSuite) ... ok
+test_004_roll_success (__main__.DieGameTestSuite) ... ok
+test_005_roll_failure (__main__.DieGameTestSuite) ... ok
+test_006_show_die (__main__.DieGameTestSuite) ... ok
+test_010_init (__main__.DieGameTestSuite) ... ok
+test_020_play_success (__main__.DieGameTestSuite) ... ok
+test_030_play_failure (__main__.DieGameTestSuite) ... ok
+test_040_show_result_narrow (__main__.DieGameTestSuite) ... ok
+test_050_show_result_failure (__main__.DieGameTestSuite) ... ok
+test_100_init (__main__.DieGameTestSuite) ... ok
+test_200_jackpot (__main__.DieGameTestSuite) ... ok
+test_300_combo (__main__.DieGameTestSuite) ... ok
+test_400_face_counts_per_roll (__main__.DieGameTestSuite) ... ok
+
+----------------------------------------------------------------------
+Ran 15 tests in 0.165s
+
+OK

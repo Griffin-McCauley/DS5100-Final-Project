@@ -86,7 +86,7 @@ class Game():
         if form == 'wide':
             return self._results
         elif form == 'narrow':
-            return self._results.stack().unstack(level=0).stack().to_frame('face_rolled')
+            return self._results.stack().to_frame('face_rolled')
         elif form not in ['wide','narrow']:
             raise Exception("The form parameter must be 'wide' or 'narrow'.")
     
