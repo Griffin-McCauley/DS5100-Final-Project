@@ -8,5 +8,5 @@ setup(
     author='Griffin McCauley',
     author_email='kzj5qw@virginia.edu',
     license='MIT',
-    packages=find_packages()
+    packages=['montecarlo']
 )
