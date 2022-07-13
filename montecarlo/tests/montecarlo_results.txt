@@ -1,20 +1,35 @@
-test_001_init (__main__.DieGameTestSuite) ... ok
-test_002_change_weight_success (__main__.DieGameTestSuite) ... ok
-test_003_change_weight_failure (__main__.DieGameTestSuite) ... ok
-test_004_roll_success (__main__.DieGameTestSuite) ... ok
-test_005_roll_failure (__main__.DieGameTestSuite) ... ok
-test_006_show_die (__main__.DieGameTestSuite) ... ok
-test_010_init (__main__.DieGameTestSuite) ... ok
-test_020_play_success (__main__.DieGameTestSuite) ... ok
-test_030_play_failure (__main__.DieGameTestSuite) ... ok
-test_040_show_result_narrow (__main__.DieGameTestSuite) ... ok
-test_050_show_result_failure (__main__.DieGameTestSuite) ... ok
-test_100_init (__main__.DieGameTestSuite) ... ok
-test_200_jackpot (__main__.DieGameTestSuite) ... ok
-test_300_combo (__main__.DieGameTestSuite) ... ok
-test_400_face_counts_per_roll (__main__.DieGameTestSuite) ... ok
+test_001_init (__main__.DieGameTestSuite)
+This test checks that the __init__ method of the Die class correctly initializes a die object. ... ok
+test_002_change_weight_success (__main__.DieGameTestSuite)
+This test checks that the change_weight method of the Die class correctly changes the weight of a single side. ... ok
+test_003_change_weight_failure (__main__.DieGameTestSuite)
+This test checks that the change_weight method of the Die class does not change the weight of a single side when given an incorrect input. ... ok
+test_004_roll_success (__main__.DieGameTestSuite)
+This test checks that the roll method of the Die class correctly outputs a list of outcomes. ... ok
+test_005_roll_failure (__main__.DieGameTestSuite)
+This test checks that the roll method of the Die class does not output a list of outcomes when given an incorrect input. ... ok
+test_006_show_die (__main__.DieGameTestSuite)
+This test checks that the show_die method of the Die class correctly returns the private dataframe of the .die attribute. ... ok
+test_010_init (__main__.DieGameTestSuite)
+This test checks that the __init__ method of the Game class correctly initializes a game object. ... ok
+test_020_play_success (__main__.DieGameTestSuite)
+This test checks that the play method of the Game class correctly generates the ._results attribute of the game object. ... ok
+test_030_play_failure (__main__.DieGameTestSuite)
+This test checks that play method of the Game class does not generate the ._results attribute of the game object. ... ok
+test_040_show_result_narrow (__main__.DieGameTestSuite)
+This test checks that the show_result method of the Game class correctly outputs the results dataframe in narrow format when provided the 'narrow' argument. ... ok
+test_050_show_result_failure (__main__.DieGameTestSuite)
+This test checks that the show_result method of the Game class raises an exception if the user passes an invalid option (i.e. not 'wide' or 'narrow'). ... ok
+test_100_init (__main__.DieGameTestSuite)
+This test checks that the __init__ method of the Analyzer class correctly initializes an analyzer object. ... ok
+test_200_jackpot (__main__.DieGameTestSuite)
+This test checks that jackpot method of the Analyzer class outputs a value of the correct type and that it correctly generates the .jackpots attribute of the analyzer object. ... ok
+test_300_combo (__main__.DieGameTestSuite)
+This test checks that the combo method of the Analyzer class correctly generates the .combos attribute of the analyzer object. ... ok
+test_400_face_counts_per_roll (__main__.DieGameTestSuite)
+This test checks that the face_counts_per_roll method of the Analyzer class correctly generates the .face_counts_per_roll attribute of the analyzer object. ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 0.165s
+Ran 15 tests in 0.178s
 
 OK

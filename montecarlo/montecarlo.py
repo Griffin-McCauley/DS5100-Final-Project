@@ -50,13 +50,11 @@ class Die():
         return self._die
     
     
-    
 class Game():
     '''This Game class defines an object which consists of rolling of one or more dice of the same kind one or more times. '''
     
     def __init__(self, dice):
         '''This initializer takes a list of already instantiated similar Die objects as its single input parameter.'''
-        # check about whether we need to check that dice are similar or not...
         self.dice = dice
         
     def play(self, n):
@@ -90,8 +88,7 @@ class Game():
         elif form not in ['wide','narrow']:
             raise Exception("The form parameter must be 'wide' or 'narrow'.")
     
-    
-    
+       
 class Analyzer():
     '''This Analyzer class defines an object which takes the results of a single game and computes various descriptive statistical properties about it.'''
 
@@ -108,7 +105,6 @@ class Analyzer():
         jackpot_df.index.name = 'roll_number'
         self.jackpots = jackpot_df
         return int(sum(self.jackpots['jackpot']))
-        # return int(sum([(len(set(self.game._results.iloc[i])) == 1) for i in range(len(self.game._results))]))
     
     def combo(self):
         '''This method computes the distinct combinations of faces rolled, along with their counts.'''
