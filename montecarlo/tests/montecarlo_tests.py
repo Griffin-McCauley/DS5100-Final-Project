@@ -44,46 +44,56 @@ class DieGameTestSuite(unittest.TestCase):
             
     def test_010_init(self):
         '''This test checks that the __init__ method of the Game class correctly initializes a game object.'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         self.assertTrue(all(type(die) == Die for die in game.dice))
         
     def test_020_play_success(self):
         '''This test checks that the play method of the Game class correctly generates the ._results attribute of the game object.'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         game.play(10)
         self.assertTrue(game._results.shape == (10, 3) and game._results.isin(['Ace', 'King', 'Queen', 'Jack']).sum().sum() == 30 and game._results.index.names[0] == 'roll_number' and game._results.columns.names[0] == 'die_number')
                 
     def test_030_play_failure(self):
         '''This test checks that play method of the Game class does not generate the ._results attribute of the game object.'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         game.play('ten')
         self.assertFalse(hasattr(game, '_results'))
         
     def test_040_show_result_narrow(self):
         '''This test checks that the show_result method of the Game class correctly outputs the results dataframe in narrow format when provided the 'narrow' argument.'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         game.play(10)
         result = game.show_result('narrow')
         self.assertTrue(result.shape == (30, 1) and result.index.names == ['roll_number', 'die_number'] and result.columns[0] == 'face_rolled')
         
     def test_050_show_result_failure(self):
         '''This test checks that the show_result method of the Game class raises an exception if the user passes an invalid option (i.e. not 'wide' or 'narrow').'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         game.play(10)
         with self.assertRaises(Exception):
             game.show_result('standard')
@@ -91,20 +101,24 @@ class DieGameTestSuite(unittest.TestCase):
                    
     def test_100_init(self):
         '''This test checks that the __init__ method of the Analyzer class correctly initializes an analyzer object.'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         game.play(10)
         analyzer = Analyzer(game)
         self.assertTrue(analyzer.game._results.shape == (10, 3))
         
     def test_200_jackpot(self):
         '''This test checks that jackpot method of the Analyzer class outputs a value of the correct type and that it correctly generates the .jackpots attribute of the analyzer object.'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         game.play(10)
         analyzer = Analyzer(game)
         jackpots = analyzer.jackpot()
@@ -112,10 +126,12 @@ class DieGameTestSuite(unittest.TestCase):
         
     def test_300_combo(self):
         '''This test checks that the combo method of the Analyzer class correctly generates the .combos attribute of the analyzer object.'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         game.play(10)
         analyzer = Analyzer(game)
         analyzer.combo()
@@ -123,10 +139,12 @@ class DieGameTestSuite(unittest.TestCase):
         
     def test_400_face_counts_per_roll(self):
         '''This test checks that the face_counts_per_roll method of the Analyzer class correctly generates the .face_counts_per_roll attribute of the analyzer object.'''
-        die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
-        game = Game([die1, die2, die3])
+        die = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die1 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die2 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
+        # game = Game([die1, die2, die3])
+        game = Game([die, die, die])
         game.play(10)
         analyzer = Analyzer(game)
         analyzer.face_counts_per_roll()
