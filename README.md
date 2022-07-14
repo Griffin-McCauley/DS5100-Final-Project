@@ -48,10 +48,68 @@ Using the `combo()` method will generate a `combos` attribute that is a multi-in
 If you would like to see the number of face counts per roll, you can run `analyzer.face_counts_per_roll()` to get create an attribute `face_counts_per_roll` that will be a dataframe where each row is a single roll and each column is one of the face values and whose entries are the counts of how many times that face value appeared during that roll.
 
 ## API Description
+### The Die class
+This Die class defines an object which has N sides, or “faces”, and W weights, and can be rolled to select a face.
+#### Methods
+* __init__
+    * This initializer takes an array of faces (strings or numbers) as an input and defines an unnormalized uniform distribution over the sample space of faces, storing this distribution as a private dataframe.
+* change_weight
+    * Purpose: to change the weight of a single side
+    * Inputs: 
+            - the face value to be changed (string or number depending on initialization)
+            - the new weight (float)
+    * Output: a modified weights distribution
+* roll
+    * Purpose: to roll the die one or more times
+    * Input: a number to specify how many times the dice should be rolled
+    * Output: a list of outcomes
+* show_die
+    * This method shows the die’s current set of faces and weights.
+#### Attributes
+* faces
+    * an array of face values (strings or numbers)
+* weights
+    * an array of weight values (floats)
 
+### The Game class
+This Game class defines an object which consists of rolling of one or more dice of the same kind one or more times.
+#### Methods
+* __init__
+    * This initializer takes a list of already instantiated similar Die objects as its single input parameter.
+* play
+    * Purpose: to play the game by rolling the dice a specified number of times
+    * Input: a number to specify how many times the dice should be rolled
+    * Output: a private dataframe of shape N rolls by M dice with each entry indicating the face rolled in that instance
+* show_result
+    * Purpose: to pass the private dataframe of results to the user
+    * Input: a form parameter ('wide' or 'narrow'), specifying whether to return the dataframe in 'narrow' or 'wide' form
+    * Output: the private dataframe of results
+#### Attributes
+* dice
+    * a list of die objects
+
+### The Analyzer class
+This Analyzer class defines an object which takes the results of a single game and computes various descriptive statistical properties about it.
+#### Methods
+* __init__
+    * This initializer takes a game object as its single input parameter.
+* jackpot
+    * This method computes how many times the game resulted in all faces being identical and stores a boolean dataframe showing which rolls resulted in a jackpot as a public attribute.
+* combo
+    * This method computes the distinct combinations of faces rolled along with their counts and stores this as a multi-indexed dataframe in a public attribute.
+* face_counts_per_roll
+    * This method computes how many times a given face is rolled in each event and stores this as a dataframe in a public attribute.
+#### Attributes
+* game
+    * a game object
+* jackpots
+    * a boolean dataframe showing which rolls resulted in a jackpot
+* combos
+    * a multi-indexed dataframe storing the distinct combinations of faces rolled along with their counts
+* face_counts_per_roll
+    * a dataframe expressing how many times a given face is rolled in each event
 
 ## Manifest
-
 * .gitignore
 * LICENSE
 * README.md

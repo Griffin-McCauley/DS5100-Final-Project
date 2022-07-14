@@ -6,7 +6,7 @@ class Die():
     
     def __init__(self, faces):
         '''
-        This initializer takes an array of faces (strings or numbers) as an input and defines a uniform distribution over the sample space of faces, storing this distribution as a private dataframe.
+        This initializer takes an array of faces (strings or numbers) as an input and defines an unnormalized uniform distribution over the sample space of faces, storing this distribution as a private dataframe.
         '''
         if len(set(map(type, faces))) == 1:
             self.faces = np.array(faces)
@@ -51,7 +51,7 @@ class Die():
     
     
 class Game():
-    '''This Game class defines an object which consists of rolling of one or more dice of the same kind one or more times. '''
+    '''This Game class defines an object which consists of rolling of one or more dice of the same kind one or more times.'''
     
     def __init__(self, dice):
         '''This initializer takes a list of already instantiated similar Die objects as its single input parameter.'''
@@ -95,9 +95,10 @@ class Analyzer():
     def __init__(self, game):
         '''This initializer takes a game object as its single input parameter.'''
         self.game = game
+        self._faces_dtype = game.dice[0].faces.dtype
         
     def jackpot(self):
-        '''This method computes how many times the game resulted in all faces being identical.'''
+        '''This method computes how many times the game resulted in all faces being identical and stores a boolean dataframe showing which rolls resulted in a jackpot as a public attribute.'''
         jackpot_df = pd.DataFrame()
         for i in range(len(self.game._results)):
             jackpot_df = pd.concat([jackpot_df, pd.DataFrame({'jackpot': [(len(set(self.game._results.iloc[i])) == 1)]})], axis = 0)
@@ -107,12 +108,12 @@ class Analyzer():
         return int(sum(self.jackpots['jackpot']))
     
     def combo(self):
-        '''This method computes the distinct combinations of faces rolled, along with their counts.'''
+        '''This method computes the distinct combinations of faces rolled along with their counts and stores this as a multi-indexed dataframe in a public attribute.'''
         rolls = [sorted(list(self.game._results.iloc[i])) for i in range(len(self.game._results))]
         self.combos = pd.DataFrame(rolls).value_counts().to_frame('counts')
         
     def face_counts_per_roll(self):
-        '''This method computes how many times a given face is rolled in each event.'''
+        '''This method computes how many times a given face is rolled in each event and stores this as a dataframe in a public attribute.'''
         fcpr = pd.DataFrame()
         for i in range(len(self.game._results)):
             fcpr = pd.concat([fcpr, pd.DataFrame({'Ace': [sum(list(self.game._results.iloc[i] == 'Ace'))], 'King': [sum(list(self.game._results.iloc[i] == 'King'))], 'Queen': [sum(list(self.game._results.iloc[i] == 'Queen'))], 'Jack': [sum(list(self.game._results.iloc[i] == 'Jack'))]})], axis = 0)
