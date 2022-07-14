@@ -11,13 +11,15 @@
 ## Synopsis
 ### Installing
 The most straightforward way to install the Monte Carlo module within this repository is to run the following lines of code in from the terminal while inside the desired current working directory:
+
 ```git clone https://github.com/Griffin-McCauley/DS5100-Final-Project.git
 pip install e .```
+
 This should properly install the module system wide so that you can import the classes associated with this module into any Python environment. However, if you would prefer to install the package directly from GitHub, see this Stack Overflow article (https://stackoverflow.com/questions/15268953/how-to-install-python-package-from-github#:~:text=on%20this%20post.-,To%20install%20Python%20package%20from%20github,need%20to%20clone%20that%20repository.&text=pip%20install%20.,repo%20dir%20will%20work%20too) for instructions on other installation methods.
 ### Importing
-In order to import the Die, Game, and Analyzer classes from this module into another Python file, simply run ```from module.module import Die, Game, Analyzer``` at the top of your script where you import the other packages and libraries you will need.
+In order to import the Die, Game, and Analyzer classes from this module into another Python file, simply run `from module.module import Die, Game, Analyzer` at the top of your script where you import the other packages and libraries you will need.
 ### Creating dice
-To create an instance of a die object, one simply needs to pass an array of faces (either strings or numbers) into the Die class likeso: ```die = Die(['H', 'T'])```
+To create an instance of a die object, one simply needs to pass an array of faces (either strings or numbers) into the Die class likeso: `die = Die(['H', 'T'])`
 This will initialize a die object with faces H and T with a uniform weight distribution over these two outcomes.
 If you would like to change the weights of the die faces, you can use the `change_weight()` method to achieve this by passing in the face value whose weight you would like to change along with the new weight value of that face. The full method call would look like this: ```die.change_weight(face_value, new_weight)```
 To see the current configuration of your die, running ```die.show_die()``` will allow you to view all of the faces along with their associated weights.
