@@ -12,8 +12,10 @@
 ### Installing
 The most straightforward way to install the Monte Carlo module within this repository is to run the following lines of code in from the terminal while inside the desired current working directory:
 
-```git clone https://github.com/Griffin-McCauley/DS5100-Final-Project.git
-pip install e .```
+```
+git clone https://github.com/Griffin-McCauley/DS5100-Final-Project.git
+pip install e .
+```
 
 This should properly install the module system wide so that you can import the classes associated with this module into any Python environment. However, if you would prefer to install the package directly from GitHub, see this Stack Overflow article (https://stackoverflow.com/questions/15268953/how-to-install-python-package-from-github#:~:text=on%20this%20post.-,To%20install%20Python%20package%20from%20github,need%20to%20clone%20that%20repository.&text=pip%20install%20.,repo%20dir%20will%20work%20too) for instructions on other installation methods.
 ### Importing
