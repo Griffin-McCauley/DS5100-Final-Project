@@ -57,7 +57,7 @@ class DieGameTestSuite(unittest.TestCase):
         die3 = Die(['Ace', 'King', 'Queen', 'Jack'])
         game = Game([die1, die2, die3])
         game.play(10)
-        self.assertTrue(game._results.shape == (10, 3) and game._results.index.names[0] == 'roll_number' and game._results.columns.names[0] == 'die_number')
+        self.assertTrue(game._results.shape == (10, 3) and game._results.isin(['Ace', 'King', 'Queen', 'Jack']).sum().sum() == 30 and game._results.index.names[0] == 'roll_number' and game._results.columns.names[0] == 'die_number')
                 
     def test_030_play_failure(self):
         '''This test checks that play method of the Game class does not generate the ._results attribute of the game object.'''
