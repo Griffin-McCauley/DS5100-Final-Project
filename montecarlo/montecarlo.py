@@ -35,7 +35,7 @@ class Die():
     def roll(self, n = 1):
         '''
         Purpose: to roll the die one or more times
-        Input: a number to specify how many times the dice should be rolled
+        Input: a number to specify how many times the dice should be rolled (defaults to 1)
         Output: a list of outcomes
         '''
         try:
@@ -78,7 +78,7 @@ class Game():
     def show_result(self, form = 'wide'):
         '''
         Purpose: to pass the private dataframe of results to the user
-        Input: a form parameter ('wide' or 'narrow'), specifying whether to return the dataframe in 'narrow' or 'wide' form
+        Input: a form parameter ('wide' or 'narrow'), specifying whether to return the dataframe in 'narrow' or 'wide' form (defaults to 'wide')
         Output: the private dataframe of results
         '''
         if form == 'wide':

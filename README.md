@@ -56,12 +56,12 @@ This Die class defines an object which has N sides, or “faces”, and W weight
 * change_weight
     * Purpose: to change the weight of a single side
     * Inputs: 
-            - the face value to be changed (string or number depending on initialization)
-            - the new weight (float)
+        * the face value to be changed (string or number depending on initialization)
+        * the new weight (float)
     * Output: a modified weights distribution
 * roll
     * Purpose: to roll the die one or more times
-    * Input: a number to specify how many times the dice should be rolled
+    * Input: a number to specify how many times the dice should be rolled (defaults to 1)
     * Output: a list of outcomes
 * show_die
     * This method shows the die’s current set of faces and weights.
@@ -69,7 +69,7 @@ This Die class defines an object which has N sides, or “faces”, and W weight
 * faces
     * an array of face values (strings or numbers)
 * weights
-    * an array of weight values (floats)
+    * an array of weight values (floats) (initialized to all 1s)
 
 ### The Game class
 This Game class defines an object which consists of rolling of one or more dice of the same kind one or more times.
@@ -82,7 +82,7 @@ This Game class defines an object which consists of rolling of one or more dice 
     * Output: a private dataframe of shape N rolls by M dice with each entry indicating the face rolled in that instance
 * show_result
     * Purpose: to pass the private dataframe of results to the user
-    * Input: a form parameter ('wide' or 'narrow'), specifying whether to return the dataframe in 'narrow' or 'wide' form
+    * Input: a form parameter ('wide' or 'narrow'), specifying whether to return the dataframe in 'narrow' or 'wide' form (defaults to 'wide')
     * Output: the private dataframe of results
 #### Attributes
 * dice
