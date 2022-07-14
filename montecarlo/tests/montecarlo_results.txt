@@ -30,6 +30,6 @@ test_400_face_counts_per_roll (__main__.DieGameTestSuite)
 This test checks that the face_counts_per_roll method of the Analyzer class correctly generates the .face_counts_per_roll attribute of the analyzer object. ... ok
 
 ----------------------------------------------------------------------
-Ran 15 tests in 0.178s
+Ran 15 tests in 0.199s
 
 OK
