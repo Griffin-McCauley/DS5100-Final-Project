@@ -51,7 +51,7 @@ If you would like to see the number of face counts per roll, you can run `analyz
 ### The Die class
 This Die class defines an object which has N sides, or “faces”, and W weights, and can be rolled to select a face.
 #### Methods
-* __init__
+* \__init__
     * This initializer takes an array of faces (strings or numbers) as an input and defines an unnormalized uniform distribution over the sample space of faces, storing this distribution as a private dataframe.
 * change_weight
     * Purpose: to change the weight of a single side
@@ -74,7 +74,7 @@ This Die class defines an object which has N sides, or “faces”, and W weight
 ### The Game class
 This Game class defines an object which consists of rolling of one or more dice of the same kind one or more times.
 #### Methods
-* __init__
+* \__init__
     * This initializer takes a list of already instantiated similar Die objects as its single input parameter.
 * play
     * Purpose: to play the game by rolling the dice a specified number of times
@@ -91,7 +91,7 @@ This Game class defines an object which consists of rolling of one or more dice 
 ### The Analyzer class
 This Analyzer class defines an object which takes the results of a single game and computes various descriptive statistical properties about it.
 #### Methods
-* __init__
+* \__init__
     * This initializer takes a game object as its single input parameter.
 * jackpot
     * This method computes how many times the game resulted in all faces being identical and stores a boolean dataframe showing which rolls resulted in a jackpot as a public attribute.
@@ -119,7 +119,7 @@ This Analyzer class defines an object which takes the results of a single game a
 * setup.py
 * sgb-words.txt
 * montecarlo/
-  * __init__.py
+  * \__init__.py
   * montecarlo.py
   * tests/
     * montecarlo_results.txt
