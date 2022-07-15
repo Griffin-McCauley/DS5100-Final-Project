@@ -10,7 +10,7 @@
 
 ## Synopsis
 ### Installing
-The most straightforward way to install the Monte Carlo module within this repository is to run the following lines of code in from the terminal while inside the desired current working directory:
+The most straightforward way to install the Monte Carlo module within this repository is to run the following lines of code from the terminal while inside the desired current working directory:
 
 ```
 git clone https://github.com/Griffin-McCauley/DS5100-Final-Project.git
